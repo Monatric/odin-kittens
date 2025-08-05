@@ -3,6 +3,8 @@
 <%= link_to "Create Kitten", new_kitten_path %>
 <% @kittens.each_with_index do |kitten, idx| %>
   <h2>Kitten #<%= idx + 1%></h2>
+  <%= link_to "Delete Kitten", kitten, data: { turbo_confirm: "Are you sure you want to delete?", turbo_method: :delete } %>
+  <%= link_to "Show Kitten", kitten %>
   <div>
     <p>Name: <%= kitten.name %></p>
     <p>Age: <%= kitten.age %></p>

@@ -1,8 +1,10 @@
+<%= link_to "Home", root_path %>
 <h1>Kittens#show</h1>
 <p>Find me in app/views/kittens/show.html.erb</p>
 <%= link_to "Edit Kitten", edit_kitten_path %>
 <div>
   <h2>Kitten #<%= @kitten.id %></h2>
+  <%= link_to "Delete Kitten", @kitten, data: { turbo_confirm: "Are you sure you want to delete?", turbo_method: :delete } %>
   <p>Name: <%= @kitten.name %></p>
   <p>Age: <%= @kitten.age %></p>
   <p>Cuteness: <%= @kitten.cuteness %></p>
