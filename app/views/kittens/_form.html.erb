@@ -1,0 +1,32 @@
+<% if @kitten.errors.any? %>
+  <p><%= pluralize(@kitten.errors.count, "error") %> prohibited this kitten from being created:</p>
+  <ul>
+    <% @kitten.errors.each do |error| %>
+      <li><%= error.full_message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with model: @kitten do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <br>
+  <div>
+    <%= form.label :age %>
+    <%= form.select :age, (0..20).to_a %>
+  </div>
+  <br>
+  <div>
+    <%= form.label :cuteness %>
+    <%= form.select :cuteness, Kitten.cutenesses.map { |k, v| [ k.capitalize, k ] } %>
+  </div>
+  <br>
+  <div>
+    <%= form.label :softness %>
+    <%= form.select :softness, Kitten.softnesses.map { |k, v| [ k.capitalize, k ] } %>
+  </div>
+  <br>
+  <%= form.submit %>
+<% end %>
