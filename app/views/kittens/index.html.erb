@@ -1,2 +1,13 @@
 <h1>Kittens#index</h1>
 <p>Find me in app/views/kittens/index.html.erb</p>
+<%= link_to "Create Kitten", new_kitten_path %>
+<% @kittens.each_with_index do |kitten, idx| %>
+  <h2>Kitten #<%= idx + 1%></h2>
+  <div>
+    <p>Name: <%= kitten.name %></p>
+    <p>Age: <%= kitten.age %></p>
+    <p>Cuteness: <%= kitten.cuteness %></p>
+    <p>Softness: <%= kitten.softness %></p>
+  </div>
+  <br>
+<% end %>
